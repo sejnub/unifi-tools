@@ -69,7 +69,9 @@ cd ~/hb-src; rm -rf unifi-tools/; git clone https://github.com/sejnub/unifi-tool
 
 . ./init.sh
 
+set -a
 . /usr/local/etc/sejnub-credentials.env
+set+a
 
 ./add-dns.sh
 
