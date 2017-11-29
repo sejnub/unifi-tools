@@ -1,0 +1,1 @@
+[.data[] | { ip, fixed_ip, name, hostname, note, is_guest}]
