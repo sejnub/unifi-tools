@@ -65,7 +65,7 @@ sudo apt-get install jq
 ````
 rm /tmp/unifi*
 
-cd ~/hb-src; rm -rf unifi-tools/; git clone https://sejnub@bitbucket.org/sejnub/unifi-tools.git; cd unifi-tools/add-dns; echo; 
+cd ~/hb-src; rm -rf unifi-tools/; git clone https://github.com/sejnub/unifi-tools.git; cd unifi-tools/add-dns; echo; 
 
 . ./init.sh
 
