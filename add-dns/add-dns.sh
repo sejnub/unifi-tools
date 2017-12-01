@@ -2,7 +2,7 @@
 
 # Prerequisites
 # - The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
-echo '$UNIFI_HOST' = $UNIFI_HOST
+echo '$UNIFI_HOST' = \'$UNIFI_HOST\'
 
 KEKS_FN=/tmp/unifi_cookie.txt
 STAT_RESULT_FN=/tmp/unifi-stat.json
