@@ -1,1 +1,9 @@
-s
+# This shell script adds the unifi controller aliases as dns entries.
+# It expects the following environment variables to be set:
+# ...
+# ...
+# ...
+# It does not need any additional files.
+
+
+# eof
