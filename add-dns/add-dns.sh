@@ -9,8 +9,9 @@ STAT_RESULT_FN=/tmp/unifi-stat.json
 ADD_DNS_RESULT_FN=/tmp/unifi-add-dns-result.json
 LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 
-LOGIN_CMD="curl -s -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
-STAT_CMD="curl  -s -k -b $KEKS_FN  -X GET https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+# TODO: add -s for silent again
+LOGIN_CMD="curl -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
+STAT_CMD="curl  -k -b $KEKS_FN  -X GET https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
 
 
 function login {
