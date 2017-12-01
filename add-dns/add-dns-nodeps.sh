@@ -8,6 +8,18 @@
 # It does not need any additional files.
 
 
+
+
+#read -r -d '' VARIABLE1 <<- EOM
+#    This is line 1.
+#    This is line 2.
+#    Line 3.
+#EOM
+
+
+
+
+
 # Prerequisites
 # - The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
 echo '$UNIFI_HOST' = $UNIFI_HOST
