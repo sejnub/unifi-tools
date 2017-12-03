@@ -94,13 +94,13 @@ if [ -e $STAT_RESULT_FN ]; then
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
 
-  provision_result=$(eval $PROVISION_CMD)
-  ok=$(echo "$provision_result" | jq -r .meta.rc)
-  if [ ! "$ok" == "ok"  ]; then
-    echo ERROR: Provision did not work.
-  else
-    echo INFO: Provision was successful.
-  fi  
+  #provision_result=$(eval $PROVISION_CMD)
+  #ok=$(echo "$provision_result" | jq -r .meta.rc)
+  #if [ ! "$ok" == "ok"  ]; then
+  #  echo ERROR: Provision did not work.
+  #else
+  #  echo INFO: Provision was successful.
+  #fi  
 
 else 
   echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
