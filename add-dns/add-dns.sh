@@ -1,13 +1,25 @@
 #!/bin/bash
 
-# Prerequisites
-# - The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
-echo '$UNIFI_HOST' = \'$UNIFI_HOST\'
 
+
+# Define Filenames
 KEKS_FN=/tmp/unifi_cookie.txt
 STAT_RESULT_FN=/tmp/unifi-stat.json
 ADD_DNS_RESULT_FN=/tmp/unifi-add-dns-result.json
 LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
+
+ENV_FILE_FN=/usr/local/etc/credentials.env
+
+# Set credentials for unifi controlles if not already set
+
+# The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
+echo Before sourcing \'$ENV_FILE\': '$UNIFI_HOST' = \'$UNIFI_HOST\'
+
+if [ -e $ENV_FILE_FN ]; then
+  source $ENV_FILE_FN
+fi
+echo After  sourcing \'$ENV_FILE\': '$UNIFI_HOST' = \'$UNIFI_HOST\'
+
 
 # TODO: add -s for silent again
 LOGIN_CMD="curl -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
