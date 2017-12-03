@@ -5,6 +5,7 @@
 - Zusätzliche manuelle DNS-Enträge implementieren
 
   - https://stackoverflow.com/questions/19529688/how-to-merge-2-json-file-using-jq  
+  - ````--argfile```` seems to do the job.
   
 - Momentan ist die interne domain ".internal" fest in das jq eingetragen. Das internal ist aber nicht statisch, sondern müsste vom controller geholt werden (zB über ````/api/s/default/rest/networkconf````).
 
