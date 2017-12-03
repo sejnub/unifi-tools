@@ -84,7 +84,7 @@ fetch
 if [ -e $STAT_RESULT_FN ]; then
 
   echo "INFO: Filtering stat-result with jq"
-  jq -f add-dns-resources/add-dns.jq   --argfile manualentries add-dns-resources/additional-manual-dns.json $STAT_RESULT_FN > $ADD_DNS_RESULT_FN
+  jq -f add-dns.jq   --argfile manualentries additional-manual-dns.json $STAT_RESULT_FN > $ADD_DNS_RESULT_FN
   
   # The following line is for another use case
   #jq -f list-clients.jq $STAT_RESULT_FN > $LIST_CLIENTS_RESULT_#FN
