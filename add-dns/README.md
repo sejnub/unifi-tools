@@ -2,9 +2,9 @@
 
 - Auf dem Controller ein reprovisioning auslösen. Hierzu kucken, was auf Netzwerk passiert, wenn ich in unifi-gui auf force provision klicke.
 - Zusätzliche manuelle DNS-Enträge implementieren
-- Es muss ein dns-Eintrag für "x.internal" erfolgen. Momentan fehlt das ".internal". Das internal ist aber nicht statisch, sondern müsste vom controller geholt werden (zB über ````/api/s/default/rest/networkconf````).
+- Momentan ist die interne domain ".internal" fest in das jq eingetragen. Das internal ist aber nicht statisch, sondern müsste vom controller geholt werden (zB über ````/api/s/default/rest/networkconf````).
 
-  - Aternative: Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben.
+- Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben, sei es von mir gesetzt oder durch den hostname.
 
 
 # Links
