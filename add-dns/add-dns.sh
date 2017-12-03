@@ -49,16 +49,22 @@ function login {
 function fetch {
   rm -f $STAT_RESULT_FN
 
+  echo "INFO: Trying to fetch stat from unifi controller."
   stat_result=$(eval $STAT_CMD)
   ok=$(echo "$stat_result" | jq -r .meta.rc)
   if [ ! "$ok" == "ok"  ]; then
+    echo "INFO: The first try to fetch stat did not work so I log in to get a new cookie."
     login
     stat_result=$(eval $STAT_CMD)
     ok=$(echo "$stat_result" | jq -r .meta.rc)
     if [ ! "$ok" == "ok"  ]; then
       echo "ERROR: Could not get the stat from the controller. Exiting."
       exit -2
+    else  
+      echo "INFO: The second try to fetch stat did work work."
     fi
+  else
+    echo "INFO: The first try to fetch stat did work work."
   fi
 
   echo "$stat_result" > $STAT_RESULT_FN
