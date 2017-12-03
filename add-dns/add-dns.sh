@@ -39,9 +39,9 @@ function login {
   login_result=$(eval $LOGIN_CMD)
   ok=$(echo "$login_result" | jq -r .meta.rc)
   if [ "$ok" == "ok"  ]; then
-    echo "login successful"
+    echo "INFO: Login successful"
   else
-    echo "login failed"
+    echo "ERROR: Login failed. Exiting."
     exit -2
   fi
 }
@@ -56,7 +56,7 @@ function fetch {
     stat_result=$(eval $STAT_CMD)
     ok=$(echo "$stat_result" | jq -r .meta.rc)
     if [ ! "$ok" == "ok"  ]; then
-      echo "ERROR fetching stat"
+      echo "ERROR: Could not get the stat from the controller. Exiting."
       exit -2
     fi
   fi
@@ -66,19 +66,30 @@ function fetch {
 
 
 if [ ! -e $KEKS_FN ]; then
+  echo "INFO: There is no cookie, so I login to the controller to create one." 
   login
+else
+  echo "INFO: There is a cookie, so I do not need to login to the controller to create one." 
 fi
 
 fetch 
 
 if [ -e $STAT_RESULT_FN ]; then
-  # echo "Filtering stat-result with jq"
+
+  echo "INFO: Filtering stat-result with jq"
   jq -f add-dns.jq      $STAT_RESULT_FN > $ADD_DNS_RESULT_FN
+  
+  # The following line is for another use case
   #jq -f list-clients.jq $STAT_RESULT_FN > $LIST_CLIENTS_RESULT_#FN
+
+  echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
+  # -q = quiet (remove this option to identify problems)
+  sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
+
+else 
+  echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
 fi
 
-# -q = quiet (remove this option to identify problems)
-sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
 
 
 
