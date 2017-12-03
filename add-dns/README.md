@@ -49,20 +49,9 @@
 - https://github.com/Art-of-WiFi/UniFi-API-browser
 
 
-
-# Requirements
-
-````
-sudo apt-get update
-sudo apt-get install sshpass
-sudo apt-get install jq
-
-````
-
-
 # Usage
 
-## Run the scriptto add DNS
+## Run the script to add DNS
 ````
 cd ~/hb-src; rm -rf unifi-tools/; git clone https://github.com/sejnub/unifi-tools.git; cd unifi-tools/add-dns; echo; 
 
@@ -114,6 +103,5 @@ eof
         }
 }
 ````
-
 
 eof
