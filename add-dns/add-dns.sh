@@ -39,7 +39,7 @@ function login {
   login_result=$(eval $LOGIN_CMD)
   ok=$(echo "$login_result" | jq -r .meta.rc)
   if [ "$ok" == "ok"  ]; then
-    echo "INFO: Login successful"
+    echo "INFO: Login was successful."
   else
     echo "ERROR: Login failed. Exiting."
     exit -2
@@ -61,10 +61,10 @@ function fetch {
       echo "ERROR: Could not get the stat from the controller. Exiting."
       exit -2
     else  
-      echo "INFO: The second try to fetch stat did work work."
+      echo "INFO: The second try to fetch stat was successful."
     fi
   else
-    echo "INFO: The first try to fetch stat did work work."
+    echo "INFO: The first try to fetch stat was successful."
   fi
 
   echo "$stat_result" > $STAT_RESULT_FN
