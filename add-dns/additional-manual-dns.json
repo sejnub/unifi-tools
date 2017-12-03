@@ -2,5 +2,21 @@
   {
     "fixed_ip": "192.168.1.210",
     "name": "CCA-Kueche"
+  },
+  {
+    "fixed_ip": "192.168.1.211",
+    "name": "syslog"
+  },
+  {
+    "fixed_ip": "192.168.1.212",
+    "name": "openhab"
+  },
+    {
+    "fixed_ip": "192.168.1.213",
+    "name": "fhem"
+  },
+  {
+    "fixed_ip": "192.168.1.212",
+    "name": "mqtt"
   }
 ]
