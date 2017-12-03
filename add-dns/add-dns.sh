@@ -29,10 +29,11 @@ else
   echo "INFO: The required credentials are set."
 fi  
 
-
 # TODO: add -s for silent again
-LOGIN_CMD="curl -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
-STAT_CMD="curl  -k -b $KEKS_FN  -X GET https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+LOGIN_CMD="curl     -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
+STAT_CMD="curl      -k -b $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+PROVISION_CMD="curl -k -b $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+
 
 
 function login {
@@ -92,6 +93,14 @@ if [ -e $STAT_RESULT_FN ]; then
   echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
+
+  provision_result=$(eval $PROVISION_CMD)
+  ok=$(echo "$provision_result" | jq -r .meta.rc)
+  if [ ! "$ok" == "ok"  ]; then
+    echo ERROR: Provision did not work.
+  else
+    echo INFO: Provision was successful.
+  fi  
 
 else 
   echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
