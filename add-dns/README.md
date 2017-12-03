@@ -1,6 +1,6 @@
 # TODO
 
-- Auf dem Controller ein reprovisioning auslösen (wie das geht, weiß ich noch nicht. REST-IF?).
+- Auf dem Controller ein reprovisioning auslösen. Hierzu kucken, was auf Netzwerk passiert, wenn ich in unifi-gui auf force provision klicke.
 - Zusätzliche manuelle DNS-Enträge implementieren
 - Es muss ein dns-Eintrag für "x.internal" erfolgen. Momentan fehlt das ".internal". Das internal ist aber nicht statisch, sondern müsste vom controller gholt werden.
 
