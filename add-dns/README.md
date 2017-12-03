@@ -4,7 +4,7 @@
 - Zusätzliche manuelle DNS-Enträge implementieren
 - Es muss ein dns-Eintrag für "x.internal" erfolgen. Momentan fehlt das ".internal". Das internal ist aber nicht statisch, sondern müsste vom controller gholt werden.
 
--- Aternative: Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben.
+  - Aternative: Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben.
 
 
 # Links
