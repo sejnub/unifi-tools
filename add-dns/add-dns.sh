@@ -94,6 +94,8 @@ if [ -e $STAT_RESULT_FN ]; then
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
 
+  echo "INFO: Now you should manually force a provisioning on the usg via the unifi controller."
+  
   #provision_result=$(eval $PROVISION_CMD)
   #ok=$(echo "$provision_result" | jq -r .meta.rc)
   #if [ ! "$ok" == "ok"  ]; then
