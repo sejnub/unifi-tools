@@ -1,5 +1,9 @@
 [
   {
+    "fixed_ip": "192.168.1.64",
+    "name": "tp-link-tl-wa701nd"
+  },
+  {
     "fixed_ip": "192.168.1.210",
     "name": "cca-kueche"
   },
@@ -22,5 +26,12 @@
   {
     "fixed_ip": "192.168.1.211",
     "name": "syslog"
+  },
+  {
+    "fixed_ip": "192.168.1.219",
+    "name": "denon-avr-x1000"
   }
+  
+  
+  
 ]
