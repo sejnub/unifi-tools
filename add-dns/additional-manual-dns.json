@@ -8,19 +8,19 @@
     "name": "cca-kueche"
   },
   {
-    "fixed_ip": "192.168.1.213",
+    "fixed_ip": "192.168.1.130",
     "name": "fhem"
   },
   {
-    "fixed_ip": "192.168.1.177",
+    "fixed_ip": "192.168.1.130",
     "name": "home-assistant"
   },
   {
-    "fixed_ip": "192.168.1.214",
+    "fixed_ip": "192.168.1.130",
     "name": "mqtt"
   },
   {
-    "fixed_ip": "192.168.1.212",
+    "fixed_ip": "192.168.1.130",
     "name": "openhab"
   },
   {
