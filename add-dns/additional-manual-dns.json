@@ -12,8 +12,8 @@
     "name": "fhem"
   },
   {
-    "fixed_ip": "192.168.1.130",
-    "name": "home-assistant"
+    "fixed_ip": "192.168.1.133",
+    "name": "hassio"
   },
   {
     "fixed_ip": "192.168.1.130",
