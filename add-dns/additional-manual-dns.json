@@ -12,6 +12,10 @@
     "name": "fhem"
   },
   {
+    "fixed_ip": "192.168.1.130",
+    "name": "webtools"
+  },
+  {
     "fixed_ip": "192.168.1.133",
     "name": "hassio"
   },
