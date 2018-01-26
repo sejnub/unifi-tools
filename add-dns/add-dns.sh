@@ -95,7 +95,7 @@ if [ -e $STAT_RESULT_FN ]; then
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
 
   echo "INFO: Now you should manually force a provisioning on the usg via the unifi controller. Try <a href='https://192.168.1.30:8443/manage/site/default/devices/1/200'>add-dns.sh</a>"
-  echo
+  echo " "
   echo "================"
   echo "=== Success ===="
   echo "================"
