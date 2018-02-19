@@ -8,6 +8,10 @@
     "name": "cca-kueche"
   },
   {
+    "fixed_ip": "192.168.1.30",
+    "name": "cloudkey"
+  },
+  {
     "fixed_ip": "192.168.1.130",
     "name": "fhem"
   },
