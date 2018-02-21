@@ -1,5 +1,7 @@
 # TODO
 
+- Die Datei additional-manual-dns.json bei ausführung von add-dns.sh via curl von github runterladen. Dadurch muss nach editieren dieser Datei nicht der ganze container neu gebaut werden.
+
 - Auf dem Controller ein reprovisioning auslösen. Hierzu kucken, was auf Netzwerk passiert, wenn ich in unifi-gui auf force provision klicke.
   
 - Momentan ist die interne domain ".internal" fest in das jq eingetragen. Das internal ist aber nicht statisch, sondern müsste vom controller geholt werden (zB über ````/api/s/default/rest/networkconf````).
