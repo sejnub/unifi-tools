@@ -3,6 +3,7 @@
   {    "fixed_ip": "192.168.1.64",     "name": "tp-link-tl-wa701nd"  },
   {    "fixed_ip": "192.168.1.210",    "name": "cca-kueche"          },
   {    "fixed_ip": "192.168.1.30",     "name": "cloudkey"            },
+  {    "fixed_ip": "192.168.1.30",     "name": "unifi"               },
   {    "fixed_ip": "192.168.1.130",    "name": "fhem"                },
   {    "fixed_ip": "192.168.1.130",    "name": "webtools"            },
   {    "fixed_ip": "192.168.1.133",    "name": "hassio"              },
