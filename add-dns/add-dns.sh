@@ -82,6 +82,10 @@ fi
 
 fetch 
 
+# TODO: Try to download the file additional-manual-dns.json from github via curl and overwrite the local one with it.
+#       This way the container that this script goes into can run forever, you only have to edit the file 
+#       https://github.com/sejnub/unifi-tools/blob/master/add-dns/additional-manual-dns.json and then run the script again.
+
 if [ -e $STAT_RESULT_FN ]; then
 
   echo "INFO: Filtering stat-result with jq"
