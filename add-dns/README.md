@@ -1,4 +1,10 @@
-# TODO
+# Add DNS
+
+## Purpose
+
+Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
+
+## TODO
 
 - Die Datei additional-manual-dns.json bei ausführung von add-dns.sh via curl von github runterladen. Dadurch muss nach editieren dieser Datei nicht der ganze container neu gebaut werden.
 
@@ -9,15 +15,15 @@
 - Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben, sei es von mir gesetzt oder durch den hostname.
 
 
-# Links
+## Links
 
-## nginx container
+### nginx container
 
 - [rpi-nginx/](https://hub.docker.com/r/wouterds/rpi-nginx/)
 - [hub.docker.com search armhf+cgi](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=armhf+cgi)
 
 
-## jq
+### jq
 
 - [jq manual v1.4](https://stedolan.github.io/jq/manual/v1.4/)
 - [jq manual v1.5](https://stedolan.github.io/jq/manual/v1.5/)
@@ -26,12 +32,12 @@
 - [jqplay.org](https://jqplay.org/)
 
 
-## json
+### json
 
 - [jsoneditoronline.org](http://jsoneditoronline.org/)
 
 
-## unifi DNS
+### unifi DNS
 
 - https://community.ubnt.com/t5/EdgeMAX/Create-DNS-enteries/td-p/468375
 
@@ -40,7 +46,7 @@
 - https://community.ubnt.com/t5/UniFi-Routing-Switching/Internal-DNS-on-USG/td-p/1592293/page/2
 
 
-## unifi API
+### unifi API
 
 - https://community.ubnt.com/t5/UniFi-Wireless/UniFi-API-browser-tool-updates-and-discussion/m-p/1392651/highlight/true#M128759
 
@@ -51,9 +57,9 @@
 - https://github.com/Art-of-WiFi/UniFi-API-browser
 
 
-# Usage
+## Usage
 
-## Run the script to add DNS
+### Run the script to add DNS
 ````
 cd ~/hb-src; rm -rf unifi-tools/; git clone https://github.com/sejnub/unifi-tools.git; cd unifi-tools/add-dns; echo; 
 
@@ -70,7 +76,7 @@ eof
 ````
 
 
-## Have a look at the resulting json files
+### Have a look at the resulting json files
 
 ````
 cat /tmp/unifi-stat.json | jq .
@@ -83,7 +89,7 @@ eof
 ````
 
 
-# Target structure
+## Target structure
 
 ````
 {
