@@ -7,7 +7,7 @@
   {    "fixed_ip": "192.168.1.130",    "name": "webtools"            },
   {    "fixed_ip": "192.168.1.130",    "name": "openhab"             },
   {    "fixed_ip": "192.168.1.130",    "name": "mqtt"                },
-  {    "fixed_ip": "192.168.1.177",    "name": "hass"                },
+  {    "fixed_ip": "192.168.1.134",    "name": "hass"                },
   {    "fixed_ip": "192.168.1.161",    "name": "plex"                },
   {    "fixed_ip": "192.168.1.177",    "name": "influxdb"            },
   {    "fixed_ip": "192.168.1.177",    "name": "grafana"             },
