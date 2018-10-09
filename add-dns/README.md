@@ -17,6 +17,10 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
 ## Links
 
+### Same tool
+
+- <https://gist.github.com/patrickfuller/08d3dffec086845d3a3249629677ffce>
+
 ### nginx container
 
 - [rpi-nginx/](https://hub.docker.com/r/wouterds/rpi-nginx/)
