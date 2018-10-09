@@ -65,7 +65,10 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
 ### Run the script to add DNS
 ````
-cd ~/hb-src; rm -rf unifi-tools/; git clone https://github.com/sejnub/unifi-tools.git; cd unifi-tools/add-dns; echo; 
+mkdir ~/hb-src; cd ~/hb-src; rm -rf unifi-tools/; 
+git clone https://github.com/sejnub/unifi-tools.git
+cd unifi-tools/add-dns
+echo 
 
 . ./init.sh
 

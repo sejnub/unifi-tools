@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+# Define URL of additional static DNS entries
+ADDITIONAL_ENTRIES_URL=https://raw.githubusercontent.com/sejnub/unifi-tools/master/add-dns/additional-manual-dns.json
 
 # Define Filenames
 KEKS_FN=/tmp/unifi_cookie.txt
@@ -29,11 +30,11 @@ else
   echo "INFO: The required credentials are set."
 fi  
 
-# TODO: add -s for silent again
-LOGIN_CMD="curl     -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
-STAT_CMD="curl      -k -b $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
-PROVISION_CMD="curl -k -b $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
+# TODO: add -s for silent again
+LOGIN_CMD="curl      -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
+STAT_CMD="curl       -k -b $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+PROVISION_CMD="curl  -k -b $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
 
 function login {
@@ -82,18 +83,45 @@ fi
 
 fetch 
 
+
+# WIP:
 # TODO: Try to download the file additional-manual-dns.json from github via curl and overwrite the local one with it.
 #       This way the container that this script goes into can run forever, you only have to edit the file 
 #       https://github.com/sejnub/unifi-tools/blob/master/add-dns/additional-manual-dns.json and then run the script again.
 
+
+###########################################
+# Get the additional DNS entries via curl #
+###########################################
+GET_ADDITIONAL_ENTRIES_CMD="curl -k $ADDITIONAL_ENTRIES_URL"
+
+addentries_result=$(eval $GET_ADDITIONAL_ENTRIES_CMD) 
+
+# Test if it is valid json
+echo "< $addentries_result >"
+type_result=$(echo "$addentries_result" | jq type)
+
+if [ ! "$type_result" == '"array"' ]; then
+  echo "ERROR: Could not get the additional-manual-dns.json. Taking the default one."
+else  
+  echo "INFO: The file additional-manual-dns.json is loaded via curl and is added to the DNS entries."
+  echo "$addentries_result" > additional-manual-dns.json
+fi
+
+
 if [ -e $STAT_RESULT_FN ]; then
 
+  #################################################################
+  # Do the jq stuff to generate the json for the unifi controller #
+  #################################################################
   echo "INFO: Filtering stat-result with jq"
   jq -f add-dns.jq   --argfile manualentries additional-manual-dns.json $STAT_RESULT_FN > $ADD_DNS_RESULT_FN
-  
   # The following line is for another use case
   #jq -f list-clients.jq $STAT_RESULT_FN > $LIST_CLIENTS_RESULT_#FN
 
+  ###################################################
+  # Copy the resulting json to the unifi controller #
+  ###################################################
   echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
@@ -103,6 +131,10 @@ if [ -e $STAT_RESULT_FN ]; then
   echo "================"
   echo "=== Success ===="
   echo "================"
+
+  ##########################
+  # WIP: Provision the usg #
+  ##########################
   #provision_result=$(eval $PROVISION_CMD)
   #ok=$(echo "$provision_result" | jq -r .meta.rc)
   #if [ ! "$ok" == "ok"  ]; then
