@@ -32,9 +32,9 @@ fi
 
 
 # TODO: add -s for silent again
-LOGIN_CMD="curl      -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
-STAT_CMD="curl       -k -b $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
-PROVISION_CMD="curl  -k -b $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+LOGIN_CMD="curl      -k    -d    '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
+STAT_CMD="curl       -k -b    -s $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+PROVISION_CMD="curl  -k -b       $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
 
 function login {
