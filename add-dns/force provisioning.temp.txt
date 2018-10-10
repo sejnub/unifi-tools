@@ -1,0 +1,49 @@
+Request URL: https://192.168.1.30:8443/api/s/default/cmd/devmgr
+Request Method: POST
+Status Code: 200 
+Remote Address: 192.168.1.30:8443
+Referrer Policy: no-referrer-when-downgrade
+
+
+
+
+########### Req Headers
+
+POST /api/s/default/cmd/devmgr HTTP/1.1
+Host: 192.168.1.30:8443
+Connection: keep-alive
+Content-Length: 51
+Accept: application/json, text/plain, */*
+Origin: https://192.168.1.30:8443
+X-Csrf-Token: csr4Z7WfgTcg1shu26DeDDbNFcY2LYKw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+Content-Type: application/json;charset=UTF-8
+Referer: https://192.168.1.30:8443/manage/site/default/devices/1/200?pp=W3siaSI6ImRldmljZXxmMDo5ZjpjMjoxMTo2YjplZiIsInMiOnsiYWN0aXZlVGFiIjoiY29uZmlndXJlIn19XQ%3D%3D
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: unifises=5YRLIhJXyX0DSWH1nsOiBnXrCiBTYMF7; csrf_token=csr4Z7WfgTcg1shu26DeDDbNFcY2LYKw
+
+
+####### REQ Payload
+
+{"mac":"f0:9f:c2:11:6b:ef","cmd":"force-provision"}
+
+
+
+
+######### Resp headeres
+
+HTTP/1.1 200
+vary: Origin
+Access-Control-Allow-Origin: https://192.168.1.30:8443
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: Access-Control-Allow-Origin,Access-Control-Allow-Credentials
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Content-Length: 41
+Date: Wed, 10 Oct 2018 21:35:39 GMT
+
+
+######### resp data 
+
+{ "data" : [ ] , "meta" : { "rc" : "ok"}}
