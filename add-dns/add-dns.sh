@@ -121,7 +121,7 @@ if [ -e $STAT_RESULT_FN ]; then
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
   sshpass_exit_code=$?
-  if [ $retVal -ne 0 ]; then
+  if [ $sshpass_exit_code -ne 0 ]; then
     echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST."
   else  
     echo "INFO: JSON file was successfully copied to the host $UNIFI_HOST."
