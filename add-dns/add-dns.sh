@@ -29,12 +29,10 @@ else
   echo "INFO: The required credentials are set."
 fi  
 
-
 # TODO: add -s for silent again
 LOGIN_CMD="curl         -k    -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
 STAT_CMD="curl       -s -k -b    $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
 PROVISION_CMD="curl     -k -b    $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
-
 
 function login {
   login_result=$(eval $LOGIN_CMD)
@@ -122,9 +120,16 @@ if [ -e $STAT_RESULT_FN ]; then
   echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
   # -q = quiet (remove this option to identify problems)
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
+  sshpass_exit_code=$?
+  if [ $retVal -ne 0 ]; then
+    echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST."
+  else  
+    echo "INFO: JSON file was successfully copied to the host $UNIFI_HOST."
+  fi
   
-  echo "sshpass exit code = '$?'" 
-  
+  ########
+  # Done #
+  ########
   echo "INFO: Now you should manually force a provisioning on the usg via the unifi controller. Try <a href='https://192.168.1.30:8443/manage/site/default/devices/1/200'>add-dns.sh</a>"
   echo " "
   echo "================"
