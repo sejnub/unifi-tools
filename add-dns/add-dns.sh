@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION=3
+
 # Define URL of additional static DNS entries
 ADDITIONAL_ENTRIES_URL=https://raw.githubusercontent.com/sejnub/unifi-tools/master/add-dns/additional-manual-dns.json
 
@@ -11,17 +13,14 @@ LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 
 ENV_FILE_FN=/usr/local/etc/credentials.env
 
+echo "INFO: ####### Running add-dns version $VERSION ########"
+
 # Set credentials for unifi controller if not already set
-
 # The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
-
-#echo Before sourcing \'$ENV_FILE\': '$UNIFI_HOST' = \'$UNIFI_HOST\'
 
 if [ -e $ENV_FILE_FN ]; then
   source $ENV_FILE_FN
 fi
-#echo After  sourcing \'$ENV_FILE\': '$UNIFI_HOST' = \'$UNIFI_HOST\'
-
 
 if [ -z "$UNIFI_HOST" ]; then
   echo "ERROR: The required credentials are not set. Exiting."
