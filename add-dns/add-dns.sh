@@ -144,6 +144,9 @@ if [ -e $STAT_RESULT_FN ]; then
   PROVISION_CMD="curl     -k -b    $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
   provision_result=$(eval $PROVISION_CMD)
+  
+  echo "'$provision_result'"
+  
   ok=$(echo "$provision_result" | jq -r .meta.rc)
   if [ ! "$ok" == "ok"  ]; then
     echo ERROR: Provision did not work.
