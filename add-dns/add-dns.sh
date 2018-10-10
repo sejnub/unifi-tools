@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=3
+VERSION=4
 
 # Define URL of additional static DNS entries
 ADDITIONAL_ENTRIES_URL=https://raw.githubusercontent.com/sejnub/unifi-tools/master/add-dns/additional-manual-dns.json
@@ -31,9 +31,9 @@ fi
 
 
 # TODO: add -s for silent again
-LOGIN_CMD="curl      -k    -d    '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
-STAT_CMD="curl       -k -b     $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
-PROVISION_CMD="curl  -k -b       $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+LOGIN_CMD="curl         -k    -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
+STAT_CMD="curl       -s -k -b    $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
+PROVISION_CMD="curl     -k -b    $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
 
 function login {
@@ -58,9 +58,6 @@ function fetch {
     login
     echo "INFO: Trying to fetch stat from unifi controller."
     stat_result=$(eval $STAT_CMD)
-    echo
-    echo
-    echo "p1"
     ok=$(echo "$stat_result" | jq -r .meta.rc)
     if [ ! "$ok" == "ok"  ]; then
       echo "ERROR: Could not get the stat from the controller. Exiting."
