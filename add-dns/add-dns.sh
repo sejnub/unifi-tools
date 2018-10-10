@@ -91,12 +91,12 @@ fetch
 # This way the container that this script goes into can run forever, you only have to edit the file 
 # https://github.com/sejnub/unifi-tools/blob/master/add-dns/additional-manual-dns.json and then run the script again.
 
-GET_ADDITIONAL_ENTRIES_CMD="curl -k $ADDITIONAL_ENTRIES_URL"
+GET_ADDITIONAL_ENTRIES_CMD="curl -s -k $ADDITIONAL_ENTRIES_URL"
 
 addentries_result=$(eval $GET_ADDITIONAL_ENTRIES_CMD) 
 
 # Test if it is valid json
-echo "< $addentries_result >"
+#echo "< $addentries_result >"
 type_result=$(echo "$addentries_result" | jq type)
 
 if [ ! "$type_result" == '"array"' ]; then
