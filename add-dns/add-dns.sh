@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=4
+VERSION=5
 
 # Define URL of additional static DNS entries
 ADDITIONAL_ENTRIES_URL=https://raw.githubusercontent.com/sejnub/unifi-tools/master/add-dns/additional-manual-dns.json
