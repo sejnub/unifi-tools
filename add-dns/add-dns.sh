@@ -122,7 +122,8 @@ if [ -e $STAT_RESULT_FN ]; then
   sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
   sshpass_exit_code=$?
   if [ $sshpass_exit_code -ne 0 ]; then
-    echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST."
+    echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST. Exiting."
+    exit -2   
   else  
     echo "INFO: JSON file was successfully copied to the host $UNIFI_HOST."
   fi
@@ -130,7 +131,7 @@ if [ -e $STAT_RESULT_FN ]; then
   ########
   # Done #
   ########
-  echo "INFO: Now you should manually force a provisioning on the usg via the unifi controller. Try <a href='https://192.168.1.30:8443/manage/site/default/devices/1/200'>add-dns.sh</a>"
+  echo "INFO: Now you should manually force a provisioning on the usg via the unifi controller. Try https://192.168.1.30:8443/manage/site/default/devices/1/200"
   echo " "
   echo "================"
   echo "=== Success ===="
@@ -154,6 +155,7 @@ if [ -e $STAT_RESULT_FN ]; then
 
 
 else 
+  # TODO: Make this the if branch and the successfull branch the else!
   echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
 fi
 
