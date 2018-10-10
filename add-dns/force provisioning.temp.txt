@@ -47,3 +47,76 @@ Date: Wed, 10 Oct 2018 21:35:39 GMT
 ######### resp data 
 
 { "data" : [ ] , "meta" : { "rc" : "ok"}}
+
+
+######################################## and now what happens with my code: following is the curl verbose output
+
+
+================
+=== Success ====
+================
+* Hostname was NOT found in DNS cache
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 192.168.1.30...
+* Connected to UniFi-CloudKey.internal (192.168.1.30) port 8443 (#0)
+* successfully set certificate verify locations:
+*   CAfile: none
+  CApath: /etc/ssl/certs
+* SSLv3, TLS handshake, Client hello (1):
+} [data not shown]
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* SSLv3, TLS handshake, Server hello (2):
+{ [data not shown]
+* SSLv3, TLS handshake, CERT (11):
+{ [data not shown]
+* SSLv3, TLS handshake, Server key exchange (12):
+{ [data not shown]
+* SSLv3, TLS handshake, Server finished (14):
+{ [data not shown]
+* SSLv3, TLS handshake, Client key exchange (16):
+} [data not shown]
+* SSLv3, TLS change cipher, Client hello (1):
+} [data not shown]
+* SSLv3, TLS handshake, Finished (20):
+} [data not shown]
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0* SSLv3, TLS change cipher, Client hello (1):
+{ [data not shown]
+* SSLv3, TLS handshake, Finished (20):
+{ [data not shown]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* Server certificate:
+*        subject: C=US; ST=CA; L=San Jose
+*        start date: 2017-11-24 21:59:24 GMT
+*        expire date: 2027-11-25 21:59:24 GMT
+*        issuer: C=US; ST=CA; L=San Jose
+*        SSL certificate verify result: self signed certificate (18), continuing anyway.
+> POST /api/s/default/cmd/devmgr HTTP/1.1
+> User-Agent: curl/7.38.0
+> Host: UniFi-CloudKey.internal:8443
+> Accept: */*
+> Cookie: csrf_token=ISmN593R6gqYFzgduKOBRlAkPLVhQcav; unifises=rAjLnpUxy3VD0EEzovAaPv4EJ4aLALa6
+> Content-Length: 51
+> Content-Type: application/x-www-form-urlencoded
+>
+} [data not shown]
+* upload completely sent off: 51 out of 51 bytes
+< HTTP/1.1 401
+< vary: Origin
+< Access-Control-Allow-Credentials: true
+< Access-Control-Expose-Headers: Access-Control-Allow-Origin,Access-Control-Allow-Credentials
+< X-Frame-Options: DENY
+< Content-Type: application/json;charset=UTF-8
+< Content-Length: 78
+< Date: Wed, 10 Oct 2018 22:05:41 GMT
+<
+{ [data not shown]
+100   129  100    78  100    51     43     28  0:00:01  0:00:01 --:--:--    43
+* Connection #0 to host UniFi-CloudKey.internal left intact
+'{ "data" : [ ] , "meta" : { "msg" : "api.err.LoginRequired" , "rc" : "error"}}'
+ERROR: Provision did not work.
+pi@rpi-03-docker:~/hb-src/unifi-tools/add-dns $
+pi@rpi-03-docker:~/hb-src/unifi-tools/add-dns $
+
+
+
+
