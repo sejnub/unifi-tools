@@ -139,13 +139,17 @@ if [ -e $STAT_RESULT_FN ]; then
   ##########################
   # WIP: Provision the usg #
   ##########################
-  #provision_result=$(eval $PROVISION_CMD)
-  #ok=$(echo "$provision_result" | jq -r .meta.rc)
-  #if [ ! "$ok" == "ok"  ]; then
-  #  echo ERROR: Provision did not work.
-  #else
-  #  echo INFO: Provision was successful.
-  #fi  
+
+  # TODO: Move the following command to the other commands at the beginning of this script!
+  PROVISION_CMD="curl     -k -b    $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+
+  provision_result=$(eval $PROVISION_CMD)
+  ok=$(echo "$provision_result" | jq -r .meta.rc)
+  if [ ! "$ok" == "ok"  ]; then
+    echo ERROR: Provision did not work.
+  else
+    echo INFO: Provision was successful.
+  fi  
 
 else 
   echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
