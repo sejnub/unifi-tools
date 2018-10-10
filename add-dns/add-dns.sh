@@ -141,7 +141,7 @@ if [ -e $STAT_RESULT_FN ]; then
   ##########################
 
   # TODO: Move the following command to the other commands at the beginning of this script!
-  PROVISION_CMD="curl     -k -b $KEKS_FN https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+  PROVISION_CMD="curl   -v  -k -b $KEKS_FN https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
 
   provision_result=$(eval $PROVISION_CMD)
   
