@@ -58,7 +58,7 @@ function fetch {
     login
     echo "INFO: Trying to fetch stat from unifi controller."
     stat_result=$(eval $STAT_CMD)
-    echo p1
+    echo "p1"
     ok=$(echo "$stat_result" | jq -r .meta.rc)
     if [ ! "$ok" == "ok"  ]; then
       echo "ERROR: Could not get the stat from the controller. Exiting."
