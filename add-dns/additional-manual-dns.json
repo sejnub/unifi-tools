@@ -14,7 +14,6 @@
   {    "fixed_ip": "192.168.1.161",    "name": "syslog"              },
   {    "fixed_ip": "192.168.1.177",    "name": "influxdb"            },
   {    "fixed_ip": "192.168.1.177",    "name": "grafana"             },
-  {    "fixed_ip": "192.168.1.219",    "name": "denon-avr-x1000"     },
-  {    "fixed_ip": "192.168.1.248",    "name": "cuno0"               }
+  {    "fixed_ip": "192.168.1.219",    "name": "denon-avr-x1000"     }
   
 ]
