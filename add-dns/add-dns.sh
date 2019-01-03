@@ -38,9 +38,9 @@ function login {
   login_result=$(eval $LOGIN_CMD)
   ok=$(echo "$login_result" | jq -r .meta.rc)
   if [ "$ok" == "ok"  ]; then
-    echo "INFO: Login was successful."
+    echo "INFO: Login to '$UNIFI_HOST' was successful."
   else
-    echo "ERROR: Login failed. Exiting."
+    echo "ERROR: Login to '$UNIFI_HOST' failed. Exiting."
     exit -2
   fi
 }
