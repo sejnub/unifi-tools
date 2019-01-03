@@ -11,7 +11,7 @@ STAT_RESULT_FN=/tmp/unifi-stat.json
 ADD_DNS_RESULT_FN=/tmp/unifi-add-dns-result.json
 LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 
-ENV_FILE_FN=/usr/local/etc/credentials.env
+ENV_FILE_FN=/usr/local/etc/sejnub-credentials.env
 
 echo "INFO: ####### Running add-dns version $VERSION ########"
 
