@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=6
+VERSION=7
 
 echo "INFO: ####### Running add-dns version $VERSION ########"
 
@@ -140,9 +140,9 @@ if [ -e $STAT_RESULT_FN ]; then
   ###################################################
   # Copy the resulting json to the unifi controller #
   ###################################################
-  echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
+  echo "INFO: Copying the resulting file to $CONFIG_GATEWAY_JSON_FN on the host $UNIFI_HOST."
   # -q = quiet (remove this option to identify problems)
-  sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:$CONFIG_GATEWAY_JSON_FN
+  sshpass -p "$UNIFI_SSH_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_SSH_USERNAME@$UNIFI_HOST:$CONFIG_GATEWAY_JSON_FN
   sshpass_exit_code=$?
   if [ $sshpass_exit_code -ne 0 ]; then
     echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST. Exiting."
