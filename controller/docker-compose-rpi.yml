@@ -32,3 +32,5 @@ volumes:
     driver: local
   work:
     driver: local
+  config.gateway.json:
+    driver: local
