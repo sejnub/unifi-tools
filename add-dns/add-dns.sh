@@ -1,8 +1,15 @@
 #!/bin/bash
 
-VERSION=5
+VERSION=6
 
-# Define URL of additional static DNS entries
+echo "INFO: ####### Running add-dns version $VERSION ########"
+
+
+#############
+# Constants #
+#############
+
+# Additional static DNS entries
 ADDITIONAL_ENTRIES_URL=https://raw.githubusercontent.com/sejnub/unifi-tools/master/add-dns/additional-manual-dns.json
 
 # Define Filenames
@@ -11,10 +18,18 @@ STAT_RESULT_FN=/tmp/unifi-stat.json
 ADD_DNS_RESULT_FN=/tmp/unifi-add-dns-result.json
 LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 
+# The name of the json file on the unifi controller on cloudkey
+#CONFIG_GATEWAY_JSON_FN=/srv/unifi/data/sites/default/config.gateway.json
+
+# The name of the json file on the unifi controller on rpi-02-docker
+CONFIG_GATEWAY_JSON_FN=/home/pi/unifi/config.gateway.json
+
 ENV_FILE_FN=/usr/local/etc/sejnub-credentials.env
 
-echo "INFO: ####### Running add-dns version $VERSION ########"
 
+############################################
+# Get credentials and insert into commands #
+############################################
 # Set credentials for unifi controller if not already set
 # The variables $UNIFI_USERNAME, $UNIFI_PASSWD and $UNIFI_HOST must be set.
 
@@ -33,6 +48,11 @@ fi
 LOGIN_CMD="     curl -s -k -d '{\"username\":\"$UNIFI_USERNAME\",\"password\":\"$UNIFI_PASSWD\",\"remember\":false,\"strict\":true}' -c $KEKS_FN -k -X POST https://$UNIFI_HOST:8443/api/login"
 STAT_CMD="      curl -s -k -b $KEKS_FN -X GET  https://$UNIFI_HOST:8443/api/s/default/stat/alluser"
 PROVISION_CMD=" curl    -k -b $KEKS_FN -X POST https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
+
+
+#############
+# Functions #
+#############
 
 function login {
   login_result=$(eval $LOGIN_CMD)
@@ -71,6 +91,9 @@ function fetch {
 }
 
 
+########################################
+# Get the stat entries from controller #
+########################################
 if [ ! -e $KEKS_FN ]; then
   echo "INFO: There is no cookie, so I login to the controller to create one." 
   login
@@ -81,9 +104,9 @@ fi
 fetch 
 
 
-###########################################
-# Get the additional DNS entries via curl #
-###########################################
+##################################################
+# Get the additional DNS entries from repository #
+##################################################
 # Download the file additional-manual-dns.json from github via curl and overwrite the local one with it.
 # This way the container that this script goes into can run forever, you only have to edit the file 
 # https://github.com/sejnub/unifi-tools/blob/master/add-dns/additional-manual-dns.json and then run the script again.
@@ -119,7 +142,7 @@ if [ -e $STAT_RESULT_FN ]; then
   ###################################################
   echo "INFO: Copying the resulting file to 'config.gateway.json' on the host $UNIFI_HOST."
   # -q = quiet (remove this option to identify problems)
-  sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:/srv/unifi/data/sites/default/config.gateway.json
+  sshpass -p "$UNIFI_PASSWD" scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $ADD_DNS_RESULT_FN $UNIFI_USERNAME@$UNIFI_HOST:$CONFIG_GATEWAY_JSON_FN
   sshpass_exit_code=$?
   if [ $sshpass_exit_code -ne 0 ]; then
     echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST. Exiting."
