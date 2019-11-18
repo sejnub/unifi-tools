@@ -18,7 +18,7 @@ services:
       - run:/usr/lib/unifi/run
       - run2:/run/unifi
       - work:/usr/lib/unifi/work
-      - config.gateway.json:/var/lib/unifi/sites/default/config.gateway.json
+      - ./config.gateway.json:/var/lib/unifi/sites/default/config.gateway.json
 volumes:
   config:
     driver: local
@@ -31,6 +31,4 @@ volumes:
   run2:
     driver: local
   work:
-    driver: local
-  config.gateway.json:
     driver: local
