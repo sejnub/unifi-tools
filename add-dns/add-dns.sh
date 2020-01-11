@@ -41,7 +41,8 @@ if [ -z "$UNIFI_HOST" ]; then
   echo "ERROR: The required credentials are not set. Exiting."
   exit -2
 else
-  echo "INFO: The required credentials are set."
+  echo "INFO: The required credentials seem to be set."
+  echo "INFO: unifi controller = $UNIFI_HOST."
 fi  
 
 # TODO: add -s for silent again
@@ -148,7 +149,7 @@ if [ -e $STAT_RESULT_FN ]; then
     echo "ERROR: Could not copy the JSON file to the host $UNIFI_HOST. Exiting."
     exit -2   
   else  
-    echo "INFO: JSON file was successfully copied to the host $UNIFI_HOST."
+    echo "INFO: JSON file was successfully copied to the unifi controller."
   fi
   
   ########
