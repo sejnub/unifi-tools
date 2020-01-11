@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=7
+VERSION=8
 
 echo "INFO: ####### Running add-dns version $VERSION ########"
 
