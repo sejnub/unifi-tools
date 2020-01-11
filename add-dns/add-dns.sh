@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=8
+VERSION=9
 
 echo "INFO: ####### Running add-dns version $VERSION ########"
 
@@ -35,6 +35,8 @@ ENV_FILE_FN=/usr/local/etc/sejnub-credentials.env
 
 if [ -e $ENV_FILE_FN ]; then
   source $ENV_FILE_FN
+else 
+  echo "WARNING: The environment file $ENV_FILE_FN could not be found."
 fi
 
 if [ -z "$UNIFI_HOST" ]; then
