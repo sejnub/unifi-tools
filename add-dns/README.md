@@ -63,6 +63,13 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
 ## Usage
 
+### Prerequisites
+
+```bash
+sudo apt-get install jq
+sudo apt-get install sshpass
+```
+
 ### Run the script to add DNS
 ````
 mkdir ~/hb-src; cd ~/hb-src; rm -rf unifi-tools/; 
