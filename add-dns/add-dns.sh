@@ -75,7 +75,7 @@ function fetch {
   stat_result=$(eval $STAT_CMD)
   ok=$(echo "$stat_result" | jq -r .meta.rc)
   if [ ! "$ok" == "ok"  ]; then
-    echo "INFO: The first try to fetch stat did not work so I log in to get a new cookie."
+    echo "WARNING: The first try to fetch stat did not work so I log in to get a new cookie."
     login
     echo "INFO: Trying to fetch stat from unifi controller."
     stat_result=$(eval $STAT_CMD)
@@ -172,7 +172,17 @@ if [ -e $STAT_RESULT_FN ]; then
   echo "'$provision_result'"
   ok=$(echo "$provision_result" | jq -r .meta.rc)
   if [ ! "$ok" == "ok"  ]; then
-    echo ERROR: Provision did not work.
+    echo "Warning: The first try to provision did not work so I log in to get a new cookie."
+    login
+    echo "INFO: Trying to provision the usg with the command 'force-provision'."
+    provision_result=$(eval $PROVISION_CMD) 
+    echo "'$provision_result'"
+    ok=$(echo "$provision_result" | jq -r .meta.rc)
+    if [ ! "$ok" == "ok"  ]; then
+      echo ERROR: Provision did not work.
+    else
+      echo INFO: Provision was successful.
+    fi 
   else
     echo INFO: Provision was successful.
   fi 
