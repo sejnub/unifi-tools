@@ -22,11 +22,7 @@ LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 #CONFIG_GATEWAY_JSON_FN=/srv/unifi/data/sites/default/config.gateway.json
 
 # The name of the json file on the unifi controller on rpi-02-docker
-# See the files
-# - https://github.com/sejnub/unifi-tools/tree/master/controller 
-# - https://github.com/sejnub/unifi-tools/blob/master/controller/docker-compose-rpi.yml
-# for position of this .json file
-CONFIG_GATEWAY_JSON_FN=/home/pi/unifi-to-backup/config.gateway.json
+CONFIG_GATEWAY_JSON_FN=/home/pi/unifi/config.gateway.json
 
 ENV_FILE_FN=/usr/local/etc/sejnub-credentials.env
 
@@ -171,18 +167,17 @@ if [ -e $STAT_RESULT_FN ]; then
   ##########################
   # WIP: Provision the usg #
   ##########################
+  echo "INFO: Trying to provision the usg with the command 'force-provision'."
+  provision_result=$(eval $PROVISION_CMD) 
+  echo "'$provision_result'"
+  ok=$(echo "$provision_result" | jq -r .meta.rc)
+  if [ ! "$ok" == "ok"  ]; then
+    echo ERROR: Provision did not work.
+  else
+    echo INFO: Provision was successful.
+  fi 
 
-  ## TODO: Move the following command to the other commands at the beginning of this script!
-  #PROVISION_CMD="curl   -v  -k -b $KEKS_FN https://$UNIFI_HOST:8443/api/s/default/cmd/devmgr --data-binary '{\"mac\":\"f0:9f:c2:11:6b:ef\",\"cmd\":\"force-provision\"}' --insecure"
-  #provision_result=$(eval $PROVISION_CMD) 
-  #echo "'$provision_result'"
-  #ok=$(echo "$provision_result" | jq -r .meta.rc)
-  #if [ ! "$ok" == "ok"  ]; then
-  #  echo ERROR: Provision did not work.
-  #else
-  #  echo INFO: Provision was successful.
-  #fi  
-
+#curl 'https://192.168.1.30:8443/api/s/default/cmd/devmgr' -H 'Connection: keep-alive' -H 'Accept: application/json, text/plain, */*' -H 'Sec-Fetch-Dest: empty' -H 'X-Csrf-Token: vamthU2JEiQixnf2yzR3ALCn3AiukoWt' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36' -H 'Content-Type: application/json;charset=UTF-8' -H 'Origin: https://192.168.1.30:8443' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-Mode: cors' -H 'Referer: https://192.168.1.30:8443/manage/site/default/devices/list/1/100?pp=W3siaSI6ImRldmljZXxmMDo5ZjpjMjoxMTo2YjplZiIsInMiOnsiYWN0aXZlVGFiIjoiY29uZmlndXJlIn19XQ%3D%3D' -H 'Accept-Language: en' -H 'Cookie: unifises=xFo1qYhgR56eVWoOQT3WB4U9cArdkOEp; csrf_token=vamthU2JEiQixnf2yzR3ALCn3AiukoWt' --data-binary '{"mac":"f0:9f:c2:11:6b:ef","cmd":"force-provision"}' --compressed --insecure
 
 else 
   # TODO: Make this the if branch and the successfull branch the else!
