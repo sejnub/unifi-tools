@@ -6,8 +6,6 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
 ## TODO
 
-- Die Datei additional-manual-dns.json bei ausführung von add-dns.sh via curl von github runterladen. Dadurch muss nach editieren dieser Datei nicht der ganze container neu gebaut werden.
-
 - Auf dem Controller ein reprovisioning auslösen. Hierzu kucken, was auf Netzwerk passiert, wenn ich in unifi-gui auf force provision klicke.
   
 - Momentan ist die interne domain ".internal" fest in das jq eingetragen. Das internal ist aber nicht statisch, sondern müsste vom controller geholt werden (zB über ````/api/s/default/rest/networkconf````).
@@ -62,6 +60,9 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
 
 ## Usage
+
+This script is meant to be called by https://github.com/sejnub/docker-lighttpd/tree/master/rpi-alpine-with-scripts.
+But in the following sections it is described how to use it directly without the HTTP server.
 
 ### Prerequisites
 
