@@ -167,35 +167,36 @@ if [ -e $STAT_RESULT_FN ]; then
   ##########################
   # WIP: Provision the usg #
   ##########################
-  echo "INFO: Trying to provision the usg with the command 'force-provision'."
-  provision_result=$(eval $PROVISION_CMD) 
-  echo "'$provision_result'"
-  ok=$(echo "$provision_result" | jq -r .meta.rc)
-  if [ ! "$ok" == "ok"  ]; then
-    echo "Warning: The first try to provision did not work so I log in to get a new cookie."
-    login
-    echo "INFO: Trying to provision the usg with the command 'force-provision'."
-    provision_result=$(eval $PROVISION_CMD) 
-    echo "'$provision_result'"
-    ok=$(echo "$provision_result" | jq -r .meta.rc)
-    if [ ! "$ok" == "ok"  ]; then
-      echo ERROR: Provision did not work.
-    else
-      echo INFO: Provision was successful.
-    fi 
-  else
-    echo INFO: Provision was successful.
-  fi 
+  # Why does the following always say {"meta":{"rc":"error","msg":"api.err.LoginRequired"},"data":[]}
+  #
+  # Next line is the copied curl from the chrome developer tool
+  # curl 'https://192.168.1.30:8443/api/s/default/cmd/devmgr' -H 'Connection: keep-alive' -H 'Accept: application/json, text/plain, */*' -H 'Sec-Fetch-Dest: empty' -H 'X-Csrf-Token: vamthU2JEiQixnf2yzR3ALCn3AiukoWt' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36' -H 'Content-Type: application/json;charset=UTF-8' -H 'Origin: https://192.168.1.30:8443' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-Mode: cors' -H 'Referer: https://192.168.1.30:8443/manage/site/default/devices/list/1/100?pp=W3siaSI6ImRldmljZXxmMDo5ZjpjMjoxMTo2YjplZiIsInMiOnsiYWN0aXZlVGFiIjoiY29uZmlndXJlIn19XQ%3D%3D' -H 'Accept-Language: en' -H 'Cookie: unifises=xFo1qYhgR56eVWoOQT3WB4U9cArdkOEp; csrf_token=vamthU2JEiQixnf2yzR3ALCn3AiukoWt' --data-binary '{"mac":"f0:9f:c2:11:6b:ef","cmd":"force-provision"}' --compressed --insecure
+  
+  #echo "INFO: Trying to provision the usg with the command 'force-provision'."
+  #provision_result=$(eval $PROVISION_CMD) 
+  #echo "'$provision_result'"
+  #ok=$(echo "$provision_result" | jq -r .meta.rc)
+  #if [ ! "$ok" == "ok"  ]; then
+  #  echo "Warning: The first try to provision did not work so I log in to get a new cookie."
+  #  login
+  #  echo "INFO: Trying to provision the usg with the command 'force-provision'."
+  #  provision_result=$(eval $PROVISION_CMD) 
+  #  echo "'$provision_result'"
+  #  ok=$(echo "$provision_result" | jq -r .meta.rc)
+  #  if [ ! "$ok" == "ok"  ]; then
+  #    echo ERROR: Provision did not work.
+  #  else
+  #    echo INFO: Provision was successful.
+  #  fi 
+  #else
+  #  echo INFO: Provision was successful.
+  #fi 
 
-#curl 'https://192.168.1.30:8443/api/s/default/cmd/devmgr' -H 'Connection: keep-alive' -H 'Accept: application/json, text/plain, */*' -H 'Sec-Fetch-Dest: empty' -H 'X-Csrf-Token: vamthU2JEiQixnf2yzR3ALCn3AiukoWt' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36' -H 'Content-Type: application/json;charset=UTF-8' -H 'Origin: https://192.168.1.30:8443' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-Mode: cors' -H 'Referer: https://192.168.1.30:8443/manage/site/default/devices/list/1/100?pp=W3siaSI6ImRldmljZXxmMDo5ZjpjMjoxMTo2YjplZiIsInMiOnsiYWN0aXZlVGFiIjoiY29uZmlndXJlIn19XQ%3D%3D' -H 'Accept-Language: en' -H 'Cookie: unifises=xFo1qYhgR56eVWoOQT3WB4U9cArdkOEp; csrf_token=vamthU2JEiQixnf2yzR3ALCn3AiukoWt' --data-binary '{"mac":"f0:9f:c2:11:6b:ef","cmd":"force-provision"}' --compressed --insecure
 
 else 
   # TODO: Make this the if branch and the successfull branch the else!
   echo "ERROR: There is no file with stat results so there is nothing to parse. This line should never be reached. Fix the script!"
 fi
-
-
-
 
 
 #eof
