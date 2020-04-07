@@ -11,7 +11,7 @@
 
 ```bash
 cd ~/unifi
-sudo docker-compose down
+docker-compose down
 docker pull ryansch/unifi-rpi:latest
 
 cd ~
@@ -23,7 +23,7 @@ cd     ~/unifi
 curl -O https://raw.githubusercontent.com/sejnub/unifi-tools/master/controller/docker-compose-rpi.yml
 touch ~/unifi-to-backup/config.gateway.json
 mv docker-compose-rpi.yml docker-compose.yml
-sudo docker-compose up -d
+docker-compose up -d
 ```
 
 #### Update
