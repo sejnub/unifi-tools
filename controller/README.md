@@ -2,14 +2,12 @@
 
 ## Controller
 
-### Run controller as docker container
-
-#### Install ryansch (for Raspberry Pi)
+### Install docker container ryansch (for Raspberry Pi)
 
 - <https://github.com/ryansch/docker-unifi-rpi>
 - <https://github.com/sejnub/unifi-tools>
 
-##### Run
+#### Run
 
 ```bash
 cd ~/unifi
@@ -28,7 +26,17 @@ mv docker-compose-rpi.yml docker-compose.yml
 sudo docker-compose up -d
 ```
 
-##### Make backups available once if container is already running
+#### Update
+
+```bash
+cd ~/unifi
+docker pull ryansch/unifi-rpi:latest
+docker-compose down
+docker-compose up -d
+```
+
+
+#### Make backups available once if container is already running
 
 mkdir                                                            ~/unifi-to-backup
 docker cp unifi:/var/lib/unifi/sites/default/config.gateway.json ~/unifi-to-backup
@@ -37,7 +45,7 @@ mkdir                                 ~/unifi-to-backup
 mkdir                                 ~/unifi-to-backup/backup
 docker cp unifi:/var/lib/unifi/backup ~/unifi-to-backup
 
-#### Install jacobalberty (HB only tested this for x86)
+### Install docker container jacobalberty (HB only tested this for x86)
 
 - <https://hub.docker.com/r/jacobalberty/unifi>
 - <https://github.com/jacobalberty/unifi-docker>
