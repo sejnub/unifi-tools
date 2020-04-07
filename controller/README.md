@@ -29,8 +29,8 @@ docker-compose up -d
 #### Update
 
 ```bash
-cd ~/unifi
 docker pull ryansch/unifi-rpi:latest
+cd ~/unifi
 docker-compose down
 docker-compose up -d
 ```
