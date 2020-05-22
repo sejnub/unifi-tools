@@ -35,6 +35,7 @@ docker-compose down
 docker-compose up -d
 ```
 
+After the ```compose up``` the container might take up to 7 minutes until it is reachable via HTTP. 
 
 #### Make backups available once if container is already running
 
