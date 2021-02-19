@@ -39,12 +39,14 @@ After the ```compose up``` the container might take up to 7 minutes until it is 
 
 #### Make backups available once if container is already running
 
+```bash
 mkdir                                                            ~/unifi-to-backup
 docker cp unifi:/var/lib/unifi/sites/default/config.gateway.json ~/unifi-to-backup
 
 mkdir                                 ~/unifi-to-backup
 mkdir                                 ~/unifi-to-backup/backup
 docker cp unifi:/var/lib/unifi/backup ~/unifi-to-backup
+```
 
 ### Install docker container jacobalberty (HB only tested this for x86)
 
