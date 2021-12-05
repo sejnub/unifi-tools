@@ -1,3 +1,5 @@
+# Add DNS
+
 - [1. Purpose](#1-purpose)
 - [2. TODO](#2-todo)
 - [3. Links](#3-links)
@@ -12,8 +14,6 @@
   - [4.2. Run the script to add DNS](#42-run-the-script-to-add-dns)
   - [4.3. Have a look at the resulting json files](#43-have-a-look-at-the-resulting-json-files)
 - [5. Target structure](#5-target-structure)
-
-# Add DNS
 
 ## 1. Purpose
 
