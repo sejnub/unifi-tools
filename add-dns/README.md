@@ -1,10 +1,25 @@
+- [1. Purpose](#1-purpose)
+- [2. TODO](#2-todo)
+- [3. Links](#3-links)
+  - [3.1. Same tool](#31-same-tool)
+  - [3.2. nginx container](#32-nginx-container)
+  - [3.3. jq](#33-jq)
+  - [3.4. json](#34-json)
+  - [3.5. unifi DNS](#35-unifi-dns)
+  - [3.6. unifi API](#36-unifi-api)
+- [4. Usage](#4-usage)
+  - [4.1. Prerequisites](#41-prerequisites)
+  - [4.2. Run the script to add DNS](#42-run-the-script-to-add-dns)
+  - [4.3. Have a look at the resulting json files](#43-have-a-look-at-the-resulting-json-files)
+- [5. Target structure](#5-target-structure)
+
 # Add DNS
 
-## Purpose
+## 1. Purpose
 
 Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 
-## TODO
+## 2. TODO
 
 - Auf dem Controller ein reprovisioning auslösen. Hierzu kucken, was auf Netzwerk passiert, wenn ich in unifi-gui auf force provision klicke.
   
@@ -13,19 +28,19 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 - Zusätzliche DNS-Einträge ohne ".internal" für die hosts erzeugen, die schon einen .internal-Eintrag haben, sei es von mir gesetzt oder durch den hostname.
 
 
-## Links
+## 3. Links
 
-### Same tool
+### 3.1. Same tool
 
 - <https://gist.github.com/patrickfuller/08d3dffec086845d3a3249629677ffce>
 
-### nginx container
+### 3.2. nginx container
 
 - [rpi-nginx/](https://hub.docker.com/r/wouterds/rpi-nginx/)
 - [hub.docker.com search armhf+cgi](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=armhf+cgi)
 
 
-### jq
+### 3.3. jq
 
 - [jq manual v1.4](https://stedolan.github.io/jq/manual/v1.4/)
 - [jq manual v1.5](https://stedolan.github.io/jq/manual/v1.5/)
@@ -34,12 +49,12 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 - [jqplay.org](https://jqplay.org/)
 
 
-### json
+### 3.4. json
 
 - [jsoneditoronline.org](http://jsoneditoronline.org/)
 
 
-### unifi DNS
+### 3.5. unifi DNS
 
 - https://community.ubnt.com/t5/EdgeMAX/Create-DNS-enteries/td-p/468375
 
@@ -48,7 +63,7 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 - https://community.ubnt.com/t5/UniFi-Routing-Switching/Internal-DNS-on-USG/td-p/1592293/page/2
 
 
-### unifi API
+### 3.6. unifi API
 
 - https://community.ubnt.com/t5/UniFi-Wireless/UniFi-API-browser-tool-updates-and-discussion/m-p/1392651/highlight/true#M128759
 
@@ -59,19 +74,19 @@ Add DNS entries for the clients aliases (set in the unifi Web UI) to the usg.
 - https://github.com/Art-of-WiFi/UniFi-API-browser
 
 
-## Usage
+## 4. Usage
 
 This script is meant to be called by https://github.com/sejnub/docker-lighttpd/tree/master/rpi-alpine-with-scripts.
 But in the following sections it is described how to use it directly without the HTTP server.
 
-### Prerequisites
+### 4.1. Prerequisites
 
 ```bash
 sudo apt-get install jq
 sudo apt-get install sshpass
 ```
 
-### Run the script to add DNS
+### 4.2. Run the script to add DNS
 ````
 mkdir ~/hb-src; cd ~/hb-src; rm -rf unifi-tools/; 
 git clone https://github.com/sejnub/unifi-tools.git
@@ -91,7 +106,7 @@ eof
 ````
 
 
-### Have a look at the resulting json files
+### 4.3. Have a look at the resulting json files
 
 ````
 cat /tmp/unifi-stat.json | jq .
@@ -104,7 +119,7 @@ eof
 ````
 
 
-## Target structure
+## 5. Target structure
 
 ````
 {
