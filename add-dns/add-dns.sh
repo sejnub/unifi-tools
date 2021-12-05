@@ -22,7 +22,7 @@ LIST_CLIENTS_RESULT_FN=/tmp/unifi-list-clients-result#.json
 #CONFIG_GATEWAY_JSON_FN=/srv/unifi/data/sites/default/config.gateway.json
 
 # The name of the json file on the unifi controller on rpi-02-docker
-CONFIG_GATEWAY_JSON_FN=/home/pi/unifi/config.gateway.json
+CONFIG_GATEWAY_JSON_FN=/home/pi/unifi-to-backup/config.gateway.json
 
 ENV_FILE_FN=/usr/local/etc/sejnub-credentials.env
 
