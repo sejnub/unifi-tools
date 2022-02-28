@@ -1,13 +1,19 @@
 # 1. Setup Unifi
 
-## 1.1. Controller
+## 1. Controller
 
-### 1.1.1. Install docker container ryansch (for Raspberry Pi)
+### 1.1. Install docker container ryansch (for Raspberry Pi)
 
 - <https://github.com/ryansch/docker-unifi-rpi>
 - <https://github.com/sejnub/unifi-tools>
 
-#### 1.1.1.1. Run
+#### 1.1.1. Log into the rpi running the unifi container
+
+```bash
+ssh rpi02
+```
+
+#### 1.1.2. Run
 
 ```bash
 cd ~/unifi
@@ -26,7 +32,7 @@ mv docker-compose-rpi.yml docker-compose.yml
 docker-compose up -d
 ```
 
-#### 1.1.1.2. Update
+#### 1.1.3. Update
 
 ```bash
 ssh rpi02
@@ -39,7 +45,7 @@ docker-compose up -d
 
 After the ```compose up``` the container might take up to 7 minutes until it is reachable via HTTP. 
 
-#### 1.1.1.3. Make backups available once if container is already running
+#### 1.1.4. Make backups available once if container is already running
 
 ```bash
 mkdir                                                            ~/unifi-to-backup
@@ -50,7 +56,7 @@ mkdir                                 ~/unifi-to-backup/backup
 docker cp unifi:/var/lib/unifi/backup ~/unifi-to-backup
 ```
 
-### 1.1.2. Install docker container jacobalberty (HB only tested this for x86)
+### 1.2. Install docker container jacobalberty (HB only tested this for x86)
 
 - <https://hub.docker.com/r/jacobalberty/unifi>
 - <https://github.com/jacobalberty/unifi-docker>
@@ -65,7 +71,7 @@ docker run -d --restart always --init -p 8080:8080 -p 8443:8443 -p 3478:3478/udp
 
 ```
 
-### 1.1.3. Swap controllers
+### 1.3. Swap controllers
 
 Links
 
@@ -83,13 +89,13 @@ Procedure
 - Stop the old controller
   - If it is the cloudkey there is a stop button in the cloudkey GUI at port 80 (not the controller GUI at port 8443)
 
-## 1.2. Misc setup howtos
+## 2. Misc setup howtos
 
 - <https://freetime.mikeconnelly.com/archives/6241>
 
-## 1.3. Mesh network (wireless uplink)
+## 3. Mesh network (wireless uplink)
 
-### 1.3.1. UniFi-Feature-Guide-Wireless-Uplink
+### 3.1. UniFi-Feature-Guide-Wireless-Uplink
 
 <https://help.ubnt.com/hc/en-us/articles/115002262328-UniFi-Feature-Guide-Wireless-Uplink>
 
@@ -97,16 +103,16 @@ Under Configuration > Wireless Uplink, make sure to check "Allow meshing to anot
 
 IMPORTANT: This option should be enabled for all wireless access points and disabled for all wired ones.
 
-## 1.4. DNS
+## 4. DNS
 
-### 1.4.1. Create dns entries
+### 4.1. Create dns entries
 
 See
 
 - [docker-lighttpd_rpi-alpine-with-scripts](https://github.com/sejnub/docker-lighttpd/tree/master/rpi-alpine-with-scripts)
 - <https://github.com/sejnub/unifi-tools/blob/master/add-dns/additional-manual-dns.json>
 
-### 1.4.2. Show all static DNS entries in usg
+### 4.2. Show all static DNS entries in usg
 
 SSH into the usg, then
 
