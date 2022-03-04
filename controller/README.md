@@ -32,11 +32,11 @@ mv docker-compose-rpi.yml docker-compose.yml
 docker-compose up -d
 ```
 
-#### 1.1.3. Update
+#### 1.1.3. Update 
+
+#### 1.1.3.1. to "latest"
 
 ```bash
-ssh rpi02
-
 docker pull ryansch/unifi-rpi:latest
 cd ~/unifi
 docker-compose down
@@ -44,6 +44,25 @@ docker-compose up -d
 ```
 
 After the ```compose up``` the container might take up to 7 minutes until it is reachable via HTTP. 
+
+#### 1.1.3.1. To another tag that is not "latest"
+
+```bash
+cd ~
+cd unifi
+cp docker-compose.yml docker-compose-special.yml
+nano docker-compose-special.yml
+```
+
+Change the version "latest to the one you want
+
+```bash
+docker-compose down
+docker-compose up -d -f docker-compose-special.yml
+```
+
+
+- Copy the file docker-compose.yml 
 
 #### 1.1.4. Make backups available once if container is already running
 
