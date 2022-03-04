@@ -49,18 +49,17 @@ After the ```compose up``` the container might take up to 7 minutes until it is 
 
 ```bash
 cd ~/unifi
-cp docker-compose.yml docker-compose-special.yml
-nano docker-compose-special.yml
+cp docker-compose.yml docker-compose-<version>.yml
+nano docker-compose-<version>.yml
 ```
 
-Change the version "latest to the one you want
+Change the version `latest` to the one you want
 
 ```bash
+cd ~/unifi
 docker-compose down
-docker-compose up -d -f docker-compose-special.yml
+docker-compose -f docker-compose-<version>.yml up -d
 ```
-
-- Copy the file docker-compose.yml 
 
 #### 1.1.4. Make backups available once if container is already running
 
