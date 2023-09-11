@@ -1,1 +1,58 @@
-to be filled
+ [
+        {
+            "domain": "klaus.internal",
+            "answer": "192.168.1.111"
+        },
+        {
+            "domain": "unifi",
+            "answer": "unifi.local"
+        },
+        {
+            "domain": "fhem",
+            "answer": "fhem.internal"
+        },
+        {
+            "domain": "syslog",
+            "answer": "syslog.internal"
+        },
+        {
+            "domain": "plex",
+            "answer": "plex.internal"
+        },
+        {
+            "domain": "hass",
+            "answer": "hass.internal"
+        },
+        {
+            "domain": "unifi.internal",
+            "answer": "192.168.1.30"
+        },
+        {
+            "domain": "fhem.internal",
+            "answer": "192.168.1.130"
+        },
+        {
+            "domain": "syslog.internal",
+            "answer": "nas2.internal"
+        },
+        {
+            "domain": "hass.internal",
+            "answer": "192.168.1.30"
+        },
+        {
+            "domain": "plex.internal",
+            "answer": "nas2.internal"
+        },
+        {
+            "domain": "homeassistant.internal",
+            "answer": "hass.internal"
+        },
+        {
+            "domain": "nas2.internal",
+            "answer": "192.168.1.161"
+        },
+        {
+            "domain": "unifi.local",
+            "answer": "192.168.1.30"
+        }
+    ]
