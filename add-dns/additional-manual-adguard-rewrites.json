@@ -52,7 +52,7 @@
             "answer": "192.168.1.161"
         },
         {
-            "domain": "nas2_a_for_goodsync.internal",
+            "domain": "nas2_a_for_goodsync.local",
             "answer": "192.168.1.161"
         },
         {
