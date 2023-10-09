@@ -56,6 +56,10 @@
             "answer": "192.168.1.161"
         },
         {
+            "domain": "nas2_b_for_goodsync.local",
+            "answer": "192.168.1.161"
+        },
+        {
             "domain": "unifi.local",
             "answer": "192.168.1.30"
         }
