@@ -52,11 +52,15 @@
             "answer": "192.168.1.161"
         },
         {
-            "domain": "nas2_a_for_goodsync.local",
+            "domain": "nas2-goodsync-job-292.local",
             "answer": "192.168.1.161"
         },
         {
-            "domain": "nas2_b_for_goodsync.local",
+            "domain": "nas2-goodsync-job-412.local",
+            "answer": "192.168.1.161"
+        },
+        {
+            "domain": "nas2-goodsync-job-413.local",
             "answer": "192.168.1.161"
         },
         {
