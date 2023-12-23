@@ -5,7 +5,7 @@
   },
   {
     "domain": "fritzbox",
-    "answer": "fritzbox.local"
+    "answer": "fritzbox.internal"
   },
   {
     "domain": "hass",
@@ -21,7 +21,7 @@
   },
   {
     "domain": "unifi",
-    "answer": "unifi.local"
+    "answer": "unifi.internal"
   },
 
 
@@ -62,23 +62,23 @@
 
 
   {
-    "domain": "fritzbox.local",
+    "domain": "fritzbox.internal",
     "answer": "192.168.188.1"
   },
   {
-    "domain": "nas2-goodsync-job-292.local",
+    "domain": "nas2-goodsync-job-292.internal",
     "answer": "192.168.1.161"
   },
   {
-    "domain": "nas2-goodsync-job-412.local",
+    "domain": "nas2-goodsync-job-412.internal",
     "answer": "192.168.1.161"
   },
   {
-    "domain": "nas2-goodsync-job-413.local",
+    "domain": "nas2-goodsync-job-413.internal",
     "answer": "192.168.1.161"
   },
   {
-    "domain": "unifi.local",
+    "domain": "unifi.internal",
     "answer": "192.168.1.30"
   }
 ]
