@@ -1,11 +1,13 @@
 [
+
+  {
+    "domain": "fritz.box",
+    "answer": "fritzbox.internal"
+  },
+  
   {
     "domain": "fhem",
     "answer": "fhem.internal"
-  },
-  {
-    "domain": "fritzbox",
-    "answer": "fritzbox.internal"
   },
   {
     "domain": "hass",
