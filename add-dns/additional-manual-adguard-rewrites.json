@@ -4,10 +4,6 @@
     "answer": "fhem.internal"
   },
   {
-    "domain": "fritz",
-    "answer": "fritzbox.internal"
-  },
-  {
     "domain": "fritzbox",
     "answer": "fritzbox.internal"
   },
@@ -33,6 +29,10 @@
   {
     "domain": "fhem.internal",
     "answer": "192.168.1.130"
+  },
+  {
+    "domain": "fritzbox.internal",
+    "answer": "192.168.188.1"
   },
   {
     "domain": "hass.internal",
@@ -66,10 +66,6 @@
 
 
   {
-    "domain": "fritzbox.internal",
-    "answer": "192.168.188.1"
-  },
-  {
     "domain": "nas2-goodsync-job-292.internal",
     "answer": "192.168.1.161"
   },
@@ -80,9 +76,5 @@
   {
     "domain": "nas2-goodsync-job-413.internal",
     "answer": "192.168.1.161"
-  },
-  {
-    "domain": "unifi.internal",
-    "answer": "192.168.1.30"
   }
 ]
