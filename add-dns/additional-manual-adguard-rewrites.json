@@ -4,6 +4,10 @@
     "answer": "fhem.internal"
   },
   {
+    "domain": "fritz",
+    "answer": "fritzbox.internal"
+  },
+  {
     "domain": "fritzbox",
     "answer": "fritzbox.internal"
   },
