@@ -1,4 +1,11 @@
 [
+    {
+    "domain": "klaus.internal",
+    "answer": "192.168.1.111"
+  },
+
+  
+  
   {
     "domain": "fritz.box",
     "answer": "192.168.188.1"  
@@ -31,24 +38,17 @@
 
   {
     "domain": "fhem.internal",
-    "answer": "192.168.1.130"
+    "answer": "homeassistant.internal"
   },
   {
     "domain": "hass.internal",
-    "answer": "192.168.1.30"
+    "answer": "homeassistant.internal"
   },
   {
-    "domain": "homeassistant.internal",
-    "answer": "hass.internal"
+    "domain": "unifi.internal",
+    "answer": "homeassistant.internal"
   },
-  {
-    "domain": "klaus.internal",
-    "answer": "192.168.1.112"
-  },
-  {
-    "domain": "nas2.internal",
-    "answer": "192.168.1.161"
-  },
+
   {
     "domain": "plex.internal",
     "answer": "nas2.internal"
@@ -56,10 +56,6 @@
   {
     "domain": "syslog.internal",
     "answer": "nas2.internal"
-  },
-  {
-    "domain": "unifi.internal",
-    "answer": "192.168.1.30"
   },
 
 
