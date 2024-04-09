@@ -1,18 +1,18 @@
 [
-    {
+  {
     "domain": "klaus.internal",
     "answer": "192.168.1.111"
   },
 
-  
-  
+
+
   {
     "domain": "fritz.box",
-    "answer": "192.168.188.1"  
+    "answer": "192.168.188.1"
   },
 
 
-  
+
   {
     "domain": "fhem",
     "answer": "fhem.internal"
@@ -33,6 +33,10 @@
     "domain": "unifi",
     "answer": "unifi.internal"
   },
+  {
+    "domain": "usg",
+    "answer": "usg.internal"
+  },
 
 
 
@@ -50,17 +54,6 @@
   },
 
   {
-    "domain": "plex.internal",
-    "answer": "nas2.internal"
-  },
-  {
-    "domain": "syslog.internal",
-    "answer": "nas2.internal"
-  },
-
-
-
-  {
     "domain": "nas2-goodsync-job-292.internal",
     "answer": "nas2.internal"
   },
@@ -71,5 +64,24 @@
   {
     "domain": "nas2-goodsync-job-413.internal",
     "answer": "nas2.internal"
+  },
+  {
+    "domain": "plex.internal",
+    "answer": "nas2.internal"
+  },
+  {
+    "domain": "syslog.internal",
+    "answer": "nas2.internal"
+  },
+  {
+    "domain": "plex.internal",
+    "answer": "nas2.internal"
+  },
+
+
+
+  {
+    "domain": "usg.internal",
+    "answer": "192.168.1.1"
   }
 ]
