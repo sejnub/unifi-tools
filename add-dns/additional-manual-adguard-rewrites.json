@@ -1,18 +1,5 @@
 [
-  {
-    "domain": "klaus.internal",
-    "answer": "192.168.1.111"
-  },
-
-
-
-  {
-    "domain": "fritz.box",
-    "answer": "192.168.188.1"
-  },
-
-
-
+  
   {
     "domain": "fhem",
     "answer": "fhem.internal"
@@ -84,4 +71,16 @@
     "domain": "usg.internal",
     "answer": "192.168.1.1"
   }
+    {
+    "domain": "klaus.internal",
+    "answer": "192.168.1.111"
+  },
+  {
+    "domain": "fritz.box",
+    "answer": "192.168.188.1"
+  },
+
+
+
+
 ]
