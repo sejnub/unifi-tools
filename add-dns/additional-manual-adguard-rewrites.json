@@ -9,6 +9,10 @@
     "answer": "hass.internal"
   },
   {
+    "domain": "horst",
+    "answer": "horst.internal"
+  },
+  {
     "domain": "plex",
     "answer": "plex.internal"
   },
@@ -34,6 +38,10 @@
   {
     "domain": "hass.internal",
     "answer": "homeassistant.internal"
+  },
+  {
+    "domain": "horst.internal",
+    "answer": "prn-05-mfc-j6540dw.internal"
   },
   {
     "domain": "unifi.internal",
