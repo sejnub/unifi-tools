@@ -25,8 +25,8 @@
     "answer": "unifi.internal"
   },
   {
-    "domain": "usg",
-    "answer": "usg.internal"
+    "domain": "ucg",
+    "answer": "ucg.internal"
   },
 
 
@@ -42,10 +42,6 @@
   {
     "domain": "horst.internal",
     "answer": "prn-05-mfc-j6540dw.internal"
-  },
-  {
-    "domain": "unifi.internal",
-    "answer": "homeassistant.internal"
   },
 
   {
@@ -68,20 +64,20 @@
     "domain": "syslog.internal",
     "answer": "nas2.internal"
   },
+
+
+
   {
-    "domain": "plex.internal",
-    "answer": "nas2.internal"
+    "domain": "unifi.internal",
+    "answer": "192.168.1.1"
   },
-
-
-
   {
-    "domain": "usg.internal",
+    "domain": "ucg.internal",
     "answer": "192.168.1.1"
   },
   {
     "domain": "klaus.internal",
-    "answer": "192.168.1.111"
+    "answer": "192.168.1.112"
   },
   {
     "domain": "fritz.box",
