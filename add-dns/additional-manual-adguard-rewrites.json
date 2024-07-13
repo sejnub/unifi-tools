@@ -28,6 +28,10 @@
     "domain": "ucgu",
     "answer": "ucgu.internal"
   },
+  {
+    "domain": "udm-1-ucgu",
+    "answer": "udm-1-ucgu.internal"
+  },
 
 
 
@@ -73,6 +77,10 @@
   },
   {
     "domain": "ucgu.internal",
+    "answer": "192.168.1.1"
+  },
+  {
+    "domain": "udm-1-ucgu.internal",
     "answer": "192.168.1.1"
   },
   {
