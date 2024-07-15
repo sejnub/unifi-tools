@@ -80,6 +80,14 @@
     "answer": "192.168.188.1"
   },
   {
+    "domain": "unifi-honeypot-1.internal",
+    "answer": "192.168.1.2"
+  },
+  {
+    "domain": "unifi-honeypot-2.internal",
+    "answer": "192.168.129.2"
+  },
+  {
     "domain": "unifi.internal",
     "answer": "192.168.1.1"
   },
