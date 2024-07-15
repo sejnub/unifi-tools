@@ -1,111 +1,31 @@
 [
-  
-  {
-    "domain": "fhem",
-    "answer": "fhem.internal"
-  },
-  {
-    "domain": "fritz",
-    "answer": "fritz.internal"
-  },
-  {
-    "domain": "hass",
-    "answer": "hass.internal"
-  },
-  {
-    "domain": "horst",
-    "answer": "horst.internal"
-  },
-  {
-    "domain": "plex",
-    "answer": "plex.internal"
-  },
-  {
-    "domain": "syslog",
-    "answer": "syslog.internal"
-  },
-  {
-    "domain": "unifi",
-    "answer": "unifi.internal"
-  },
-  {
-    "domain": "ucgu",
-    "answer": "ucgu.internal"
-  },
-  {
-    "domain": "udm-1-ucgu",
-    "answer": "udm-1-ucgu.internal"
-  },
 
+  { "domain": "fhem",       "answer": "fhem.internal"                                   },
+  { "domain": "fritz",      "answer": "fritz.internal"                                  },
+  { "domain": "hass",       "answer": "hass.internal"                                   },
+  { "domain": "horst",      "answer": "horst.internal"                                  },
+  { "domain": "plex",       "answer": "plex.internal"                                   },
+  { "domain": "syslog",     "answer": "syslog.internal"                                 },
+  { "domain": "unifi",      "answer": "unifi.internal"                                  },
+  { "domain": "ucgu",       "answer": "ucgu.internal"                                   },
+  { "domain": "udm-1-ucgu", "answer": "udm-1-ucgu.internal"                             },
 
+  { "domain": "fhem.internal",                  "answer": "homeassistant.internal"      },
+  { "domain": "hass.internal",                  "answer": "homeassistant.internal"      },
+  { "domain": "horst.internal",                 "answer": "prn-05-mfc-j6540dw.internal" },
+  { "domain": "nas2-goodsync-job-292.internal", "answer": "nas2.internal"               },
+  { "domain": "nas2-goodsync-job-412.internal", "answer": "nas2.internal"               },
+  { "domain": "nas2-goodsync-job-413.internal", "answer": "nas2.internal"               },
+  { "domain": "plex.internal",                  "answer": "nas2.internal"               },
+  { "domain": "syslog.internal",                "answer": "nas2.internal"               },
 
-  {
-    "domain": "fhem.internal",
-    "answer": "homeassistant.internal"
-  },
-  {
-    "domain": "hass.internal",
-    "answer": "homeassistant.internal"
-  },
-  {
-    "domain": "horst.internal",
-    "answer": "prn-05-mfc-j6540dw.internal"
-  },
-
-  {
-    "domain": "nas2-goodsync-job-292.internal",
-    "answer": "nas2.internal"
-  },
-  {
-    "domain": "nas2-goodsync-job-412.internal",
-    "answer": "nas2.internal"
-  },
-  {
-    "domain": "nas2-goodsync-job-413.internal",
-    "answer": "nas2.internal"
-  },
-  {
-    "domain": "plex.internal",
-    "answer": "nas2.internal"
-  },
-  {
-    "domain": "syslog.internal",
-    "answer": "nas2.internal"
-  },
-
-
-
-  {
-    "domain": "fritz.internal",
-    "answer": "192.168.188.1"
-  },
-  {
-    "domain": "unifi-honeypot-1.internal",
-    "answer": "192.168.1.2"
-  },
-  {
-    "domain": "unifi-honeypot-2.internal",
-    "answer": "192.168.129.2"
-  },
-  {
-    "domain": "unifi.internal",
-    "answer": "192.168.1.1"
-  },
-  {
-    "domain": "ucgu.internal",
-    "answer": "192.168.1.1"
-  },
-  {
-    "domain": "udm-1-ucgu.internal",
-    "answer": "192.168.1.1"
-  },
-  {
-    "domain": "klaus.internal",
-    "answer": "192.168.1.241"
-  },
-  {
-    "domain": "fritz.box",
-    "answer": "192.168.188.1"
-  }
+  { "domain": "fritz.internal",            "answer": "192.168.188.1"                    },
+  { "domain": "unifi-honeypot-1.internal", "answer": "192.168.1.2"                      },
+  { "domain": "unifi-honeypot-2.internal", "answer": "192.168.129.2"                    },
+  { "domain": "unifi.internal",            "answer": "192.168.1.1"                      },
+  { "domain": "ucgu.internal",             "answer": "192.168.1.1"                      },
+  { "domain": "udm-1-ucgu.internal",       "answer": "192.168.1.1"                      },
+  { "domain": "klaus.internal",            "answer": "192.168.1.241"                    },
+  { "domain": "fritz.box",                 "answer": "192.168.188.1"                    }
 
 ]
