@@ -5,6 +5,10 @@
     "answer": "fhem.internal"
   },
   {
+    "domain": "fritz",
+    "answer": "fritz.internal"
+  },
+  {
     "domain": "hass",
     "answer": "hass.internal"
   },
@@ -71,6 +75,10 @@
 
 
 
+  {
+    "domain": "fritz.internal",
+    "answer": "192.168.188.1"
+  },
   {
     "domain": "unifi.internal",
     "answer": "192.168.1.1"
