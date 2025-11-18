@@ -26,6 +26,8 @@
   { "domain": "ucgu.internal",             "answer": "192.168.1.1"                      },
   { "domain": "udm-1-ucgu.internal",       "answer": "192.168.1.1"                      },
   { "domain": "klaus.internal",            "answer": "192.168.1.241"                    },
-  { "domain": "fritz.box",                 "answer": "192.168.188.1"                    }
+  { "domain": "fritz.box",                 "answer": "192.168.188.1"                    },
+
+  { "domain": "*.locip.me",                "answer": "192.168.1.30"                     }
 
 ]
