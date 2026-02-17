@@ -1,10 +1,10 @@
 [
 
   { "domain": "fhem",       "answer": "fhem.internal"                                   },
-  { "domain": "frank",      "answer": "frank.internal"                                  },
   { "domain": "fritz",      "answer": "fritz.internal"                                  },
   { "domain": "hass",       "answer": "hass.internal"                                   },
   { "domain": "horst",      "answer": "horst.internal"                                  },
+  { "domain": "nas2web",    "answer": "nas2web.internal"                                },
   { "domain": "plex",       "answer": "plex.internal"                                   },
   { "domain": "syslog",     "answer": "syslog.internal"                                 },
   { "domain": "unifi",      "answer": "unifi.internal"                                  },
@@ -12,12 +12,12 @@
   { "domain": "udm-1-ucgu", "answer": "udm-1-ucgu.internal"                             },
 
   { "domain": "fhem.internal",                  "answer": "homeassistant.internal"      },
-  { "domain": "frank.internal",                 "answer": "nas2.internal"               },
   { "domain": "hass.internal",                  "answer": "homeassistant.internal"      },
   { "domain": "horst.internal",                 "answer": "prn-05-mfc-j6540dw.internal" },
   { "domain": "nas2-goodsync-job-292.internal", "answer": "nas2.internal"               },
   { "domain": "nas2-goodsync-job-412.internal", "answer": "nas2.internal"               },
   { "domain": "nas2-goodsync-job-413.internal", "answer": "nas2.internal"               },
+  { "domain": "nas2web.internal",               "answer": "nas2.internal"               },
   { "domain": "plex.internal",                  "answer": "nas2.internal"               },
   { "domain": "syslog.internal",                "answer": "nas2.internal"               },
 
