@@ -4,6 +4,7 @@
   { "domain": "fritz",      "answer": "fritz.internal"                                  },
   { "domain": "hass",       "answer": "hass.internal"                                   },
   { "domain": "horst",      "answer": "horst.internal"                                  },
+  { "domain": "frank",      "answer": "nas2.internal"                                   },
   { "domain": "plex",       "answer": "plex.internal"                                   },
   { "domain": "syslog",     "answer": "syslog.internal"                                 },
   { "domain": "unifi",      "answer": "unifi.internal"                                  },
